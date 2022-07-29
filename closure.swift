@@ -50,7 +50,7 @@ Here, the closure accepts a String, we need to pass the string while we call the
 print("\nClosure that returns values")
 /*Closures can return values like functions. To return a value from closure, we must explicitly add the type to return inside braces () followed by ->.*/
 let simpleClosure3:(String) -> (String) = { name3 in      
-    let greeting3 = "Hello JavaTpoint " + "A platform for all technologies"  
+    let greeting3 = name3 + "A platform for all technologies"  
     return greeting3  
 }  
 let result3 = simpleClosure3("Hello JavaTpoint")  
