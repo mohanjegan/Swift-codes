@@ -94,3 +94,52 @@ var val = area(length: 3, breadth: 5)
 val.scaleBy(res: 2)  
 val.scaleBy(res: 20)  
 val.scaleBy(res: 200)
+
+print("\nSelf Property for Mutating Method")
+/*Mutating methods combined with 'self' property assigns a new instance to the defined method.*/
+struct area {
+   var length = 1
+   var breadth = 1
+   func area() -> Int {
+      return length * breadth
+   }
+   mutating func scaleBy(res: Int) {
+      self.length *= res
+      self.breadth *= res
+      print(length)
+      print(breadth)
+   }
+}
+
+var val = area(length: 3, breadth: 5)
+val.scaleBy(res: 13)
+
+print("\nType Methods")
+/*When a particular instance of a method is called, it is called as an Instance method; and when the method calls a particular type of a method, it is called as 'Type Methods'. Type methods for 'classes' are defined by the 'func' keyword and structures and enumerations type methods are defined with the 'static' keyword before the 'func' keyword.
+
+Type methods are called and accessed by '.' syntax where instead of calling a particular instance the whole method is invoked.*/
+class Math {
+   class func abs(number: Int) -> Int {
+      if number < 0 {
+         return (-number)
+      } else {
+         return number
+      }
+   }
+}
+
+struct absno {
+   static func abs(number: Int) -> Int {
+      if number < 0 {
+         return (-number)
+      } else {
+         return number
+      }
+   }
+}
+
+let no = Math.abs(number: -35)
+let num = absno.abs(number: -5)
+
+print(no)
+print(num)
